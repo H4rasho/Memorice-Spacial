@@ -1,0 +1,214 @@
+
+.memorice__container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 100px auto auto;
+    height: 100vh;
+}
+
+.memorice__header {
+    background-color: $secondary;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.memorice__NavBar {
+    background-color: $tertiary;
+    margin-left: -40px;
+    margin-right: 0px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.memorice__nav-Link {
+    width: 100vw;
+    color: $box-color;
+    border-bottom: 1px solid $box-color;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.memorice__header-title {
+    color: $box-color;
+}
+
+.memorice__header-logo {
+    width: 60px;
+    height: 60px;
+    
+}
+
+.memorice__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: $secondary;
+    grid-column: 1/2;
+    grid-row: 4/5;
+
+    div {
+        margin: 20px 10px 0px 10px;
+    }
+
+}
+.memorice__autor {
+    color: $box-color;
+    margin-bottom: 15px;
+}
+
+.memorice__juego {
+    background-color: $primary;
+    grid-column: 1/2;
+    grid-row: 3/4;
+    //margin-bottom: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+
+.memorice__juego-cards {
+    padding: 5px;
+    background-color: $tertiary;
+    border-radius: 50px;
+    box-shadow: 3px 3px 3px 2px rgb(0 0 0 / 40%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.memorice__card {
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 40%);
+    border-radius: 20px;
+    margin: 2px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    background-color: $primary;
+    width: 90px;
+    height: 120px;
+}
+.memorice__button {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    :hover {
+        color: darken($color: $box-color, $amount: 50)
+    }
+}
+.memorice__button-play-again {
+    cursor: pointer;
+    color: $box-color;
+    margin-bottom: 5px;
+}
+
+.memorice__button-title {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 482px) {
+    .memorice__juego-cards {
+        width: 90%;
+    }
+}
+
+@media (min-width: 525px) {
+    .memorice__juego-cards {
+        width: 75%;
+    }
+}
+
+@media (min-width: 630px) {
+    .memorice__juego-cards {
+        width: 60%;
+        padding: 30px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .memorice__NavBar {
+        display: none;
+    }
+    .memorice__icon-header {
+        display: none;
+    }
+   
+    .memorice__card-img-oculta {
+        background-repeat: repeat !important;
+    }
+    .memorice__nav-laptop {
+        display: flex !important;
+    }
+
+    
+
+    .memorice__nav-laptop-Link {
+        text-decoration: none;
+        color: $box-color;
+        padding: 5px;
+    }
+
+    .memorice__juego-cards {
+        width: 50%;
+
+    }
+
+    .memorice__card {
+        width: 140px;
+        height: 187px;
+    }
+
+}
+
+@media (min-width: 1075px) {
+    .memorice__juego {
+        width: 80%;
+    }
+}
+
+
+.memorice__nav-laptop {
+    display: none;
+}
+
+
+.memorice__card-title {
+    text-align: center;
+    color: $box-color;
+}
+.memorice__card-img-oculta {
+    background: url(https://cdn.discordapp.com/attachments/505862455029792788/870412101871607808/marcaagua.png), #ffffff;
+    background: url(https://cdn.discordapp.com/attachments/505862455029792788/870412101871607808/marcaagua.png), -webkit-gradient(linear, right top, left top, from($primary), to($secondary));
+    background: url(https://cdn.discordapp.com/attachments/505862455029792788/870412101871607808/marcaagua.png), linear-gradient(to left, $primary, $secondary);
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.memorice__card-img-descubierta {
+
+    height: 100%;
+}

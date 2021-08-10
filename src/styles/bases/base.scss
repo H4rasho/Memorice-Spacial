@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Palette+Mosaic&display=swap');
+
+body, html{
+    font-family: 'Bebas Neue', cursive;
+    color: $box-color;
+    background-color: $primary;
+}
+
+body, html, h1, h2, h3, h4, h5, li {
+    margin: 0px;
+}
+
+#root {
+    background-color: $primary
+}
+
+.dispay-none {
+    display: none;
+}
