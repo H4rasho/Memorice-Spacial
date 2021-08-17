@@ -19,6 +19,7 @@ export const MemoriceJuego = () => {
     const { active, naveS } = useSelector(state => state.memorice)
     const {user} = useSelector(state => state.auth)
     const {start} = useSelector(state => state.rank)
+    const {navBar} = useSelector(state => state.ui)
     const {bestScore} = user
 
     const handleClick = (nave) => {
@@ -70,7 +71,7 @@ export const MemoriceJuego = () => {
     }
 
     return (
-        <div className="memorice__juego"> 
+        <div className={`${navBar ? "memorice__juego-navBar" : "memorice__juego-noNavBAr"} memorice__juego`}> 
             <Instruciones />
             <div className="memorice__juego-cards">
                 {

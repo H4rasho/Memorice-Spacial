@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux'
 export const Rank = () => {
 
     const { user } = useSelector(state => state.auth)
+    const {navBar} = useSelector(state => state.ui)
     const id = Date.now()
     const { displayName, bestScore } = user
+    
 
     return (
-        <div className="rank__container">
+        <div className={`${navBar ? "memorice__juego-navBar" : "memorice__juego-noNavBAr"} rank__container`}>
             <h1>Rank</h1>
             {
                 bestScore
