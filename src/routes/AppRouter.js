@@ -6,6 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import { Login } from "../components/auth/Login";
+import { Register } from "../components/auth/Register";
 import { MemoriceRoutes } from "./MemoriceRoutes";
 import { PrivateRoutes } from "./PrivateRoutes";
 
@@ -19,7 +20,7 @@ export default function App() {
       <div>
         <Switch>
           <Route path="/login" component={Login} />
-
+          <Route path="/register" component={Register} />
           <PrivateRoutes 
             path="/" 
             component={MemoriceRoutes}

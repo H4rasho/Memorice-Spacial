@@ -78,7 +78,6 @@
 
 .memorice__juego {
     background-color: $primary;
-    //margin-bottom: 200px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -86,6 +85,13 @@
     margin: 20px auto 10px auto;
 }
 
+.memorice__instructions {
+    background-color: $tertiary;
+    box-shadow: 3px 3px 3px 2px rgb(0 0 0 / 40%);
+    border-radius: 50px;
+    margin-bottom: 10px;
+    padding: 30px;
+}
 
 
 .memorice__juego-cards {
@@ -139,10 +145,17 @@
     .memorice__juego-cards {
         width: 90%;
     }
+    .memorice__instructions{
+        width: 90%;
+    }
+
 }
 
 @media (min-width: 525px) {
     .memorice__juego-cards {
+        width: 75%;
+    }
+    .memorice__instructions {
         width: 75%;
     }
 }
@@ -151,6 +164,9 @@
     .memorice__juego-cards {
         width: 60%;
         padding: 30px;
+    }
+    .memorice__instructions {
+        width: 60%;
     }
 }
 
@@ -180,12 +196,14 @@
 
     .memorice__juego-cards {
         width: 50%;
-
+    }
+    .memorice__instructions{
+        width: 50%;
     }
 
     .memorice__card {
-        width: 140px;
-        height: 187px;
+        width: 150px;
+        height: 200px;
     }
 
 }
