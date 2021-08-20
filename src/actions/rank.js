@@ -43,7 +43,9 @@ export const startGetBestRank = () => {
 
         if (body.ok) {
             if (body.bestScore) {
-                disptach(getBestRank(body.bestScore.time))
+                const time = body.bestScore.time;
+                const id = body.bestScore.id
+                disptach(getBestRank({time, id}))
             }
         }
         else {
@@ -57,7 +59,6 @@ export const startAddRank = (time) => {
     return async (dispatch) => {
         const resp = await fetchConToken('rank', {time}, 'POST')
         const body = await resp.json();
-        console.log(resp);
         if (body.ok) {
             console.log('agregado')
         }
@@ -65,6 +66,21 @@ export const startAddRank = (time) => {
             console.log(body.msg)
         }
     }
+}
+
+export const startUpdateBestRank = (time, id) => {
+    return async(disptach) => {
+        console.log(`rank/update/${id}`);
+        const resp = await fetchConToken(`rank/update/${id}`, {time}, 'PUT');
+        const body = await resp.json();
+        if (body.ok) {
+            disptach(updateBestRank(time))
+            console.log('updated')
+        }
+        else {
+            console.log(body.msg)
+        }
+    } 
 }
 
 
@@ -81,4 +97,9 @@ const getBestRank = (time) => ({
 const getRanks = (ranks) => ({
     type: types.rankStartGetRank,
     payload: ranks
+})
+
+const updateBestRank = (time) => ({
+    type: types.rankStartUpdateRank,
+    payload: time
 })

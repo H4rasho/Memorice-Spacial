@@ -3,7 +3,7 @@ import { types } from "../types/types";
 
 
 const initialState = {
-    naveS: naves.sort(function () { return Math.random() - 0.5 }),
+    naveS: naves, //.sort(function () { return Math.random() - 0.5 }),
     active: null,
 }
 

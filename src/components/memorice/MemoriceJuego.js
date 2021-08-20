@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cargarNaves, clearActive, mostrarNave, ocultarNave, playAgain, setActiveNave } from '../../actions/memorice';
 import { naves } from '../../data/naves'
 import { Instruciones } from '../ui/Instruciones';
-import { startAddRank, startGetBestRank, startRank } from '../../actions/rank';
+import { startAddRank, startGetBestRank, startRank, startUpdateBestRank } from '../../actions/rank';
 import { restaurasNaves } from '../../helpers/restaurarNaves';
 import { upDateBestScore } from '../../actions/auth';
 
@@ -22,6 +22,7 @@ export const MemoriceJuego = () => {
 
     useEffect(() => {
         dispatch(startGetBestRank());
+        dispatch(startRank(new Date()));
     }, [dispatch])
 
     const handleClick = (nave) => {
@@ -45,8 +46,9 @@ export const MemoriceJuego = () => {
                         if (!bestScore){
                             dispatch(startAddRank(time));
                         }
-                        if( time < bestScore){
-                            dispatch(upDateBestScore(time));
+                        else if( time < bestScore.time){
+                            const id = bestScore.id
+                            dispatch(startUpdateBestRank(time, id))
                         }
                     }
                 }

@@ -49,7 +49,11 @@ export const rankReducer = (state= initialState, action) => {
                 ...state,
                 chekingRank: false
             }
-
+        case types.rankStartUpdateRank:
+            return {
+                ...state,
+                bestScore: action.payload
+            }
         default:
             return state
     }

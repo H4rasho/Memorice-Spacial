@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { startRegister } from '../../actions/auth';
-import { startRank } from '../../actions/rank';
 import { validadorCampos } from '../../helpers/validadorCampos';
 import { useForm } from '../../hooks/useForm'
 
@@ -24,7 +23,6 @@ export const Register = () => {
         e.preventDefault();
         const {ok, msg} = validadorCampos(name, email, password, password2)
         if (ok === true){
-            dispatch(startRank(new Date()));
             dispatch(startRegister(email, password, name));
         }
         else{
