@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2';
 import { faRedo } from '@fortawesome/free-solid-svg-icons'
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cargarNaves, clearActive, mostrarNave, ocultarNave, playAgain, setActiveNave } from '../../actions/memorice';
 import { naves } from '../../data/naves'
 import { Instruciones } from '../ui/Instruciones';
-import { startRank } from '../../actions/rank';
+import { startAddRank, startGetBestRank, startRank } from '../../actions/rank';
 import { restaurasNaves } from '../../helpers/restaurarNaves';
 import { upDateBestScore } from '../../actions/auth';
 
@@ -17,10 +17,12 @@ export const MemoriceJuego = () => {
     const [cont, setCont] = useState(0)
 
     const { active, naveS } = useSelector(state => state.memorice)
-    const {user} = useSelector(state => state.auth)
-    const {start} = useSelector(state => state.rank)
+    const {start, bestScore} = useSelector(state => state.rank)
     const {navBar} = useSelector(state => state.ui)
-    const {bestScore} = user
+
+    useEffect(() => {
+        dispatch(startGetBestRank());
+    }, [dispatch])
 
     const handleClick = (nave) => {
 
@@ -40,7 +42,10 @@ export const MemoriceJuego = () => {
                         const finish = new Date()
                         const time = parseInt(finish.getTime() - start.getTime()) / 1000;
                         Swal.fire('Felicitaciones', `<h1> Has ganado en <b style="color:red">${time}<b> seg </h1>`, 'success')
-                        if(!bestScore || time < bestScore){
+                        if (!bestScore){
+                            dispatch(startAddRank(time));
+                        }
+                        if( time < bestScore){
                             dispatch(upDateBestScore(time));
                         }
                     }

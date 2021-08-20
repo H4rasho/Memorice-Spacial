@@ -9,7 +9,6 @@ import { NavBar } from '../components/ui/NavBar'
 
 export const MemoriceRoutes = () => {
 
-
     return (
         <>
             <div className="memorice__container">
@@ -18,7 +17,7 @@ export const MemoriceRoutes = () => {
                 <Switch>              
                     <Route exact path="/" component={ MemoriceJuego }/>
                     <Route exact path="/rank" component={ Rank }/>
-                    <Redirect to="/profile"/>
+                    <Redirect to="/"/>
                 </Switch>
                 <Footer />    
             </div>     

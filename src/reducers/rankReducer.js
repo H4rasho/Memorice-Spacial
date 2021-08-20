@@ -1,7 +1,9 @@
 import { types } from "../types/types";
 
 const initialState = {
-    rank: []
+    ranking: [],
+    bestScore: null,
+    chekingRank: true
 }
 
 
@@ -11,8 +13,8 @@ export const rankReducer = (state= initialState, action) => {
         case types.rankAdd:
             return {
                 ...state,
-                rank: [
-                    ...state.rank,
+                ranking: [
+                    ...state.ranking,
                     action.payload
                 ]
             }
@@ -29,7 +31,24 @@ export const rankReducer = (state= initialState, action) => {
                     ? ran.time = action.payload.time
                     : ran
                 ))
-            } 
+            }
+        case types.rankStartGetRank:
+            return {
+                ...state,
+                ranking: action.payload
+                
+            }
+        
+        case types.rankStarGetBestRank:
+            return {
+                ...state,
+                bestScore: action.payload
+            }   
+        case types.rankCheckingFinish:
+            return {
+                ...state,
+                chekingRank: false
+            }
 
         default:
             return state

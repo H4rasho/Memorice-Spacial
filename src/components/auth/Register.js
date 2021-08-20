@@ -1,10 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { startRegister } from '../../actions/auth';
+import { startRank } from '../../actions/rank';
 import { validadorCampos } from '../../helpers/validadorCampos';
 import { useForm } from '../../hooks/useForm'
 
 export const Register = () => {
+
+    const dispatch = useDispatch()
 
     const [values, handleImputChange] = useForm({
         name: '',
@@ -19,7 +24,8 @@ export const Register = () => {
         e.preventDefault();
         const {ok, msg} = validadorCampos(name, email, password, password2)
         if (ok === true){
-            console.log("login")
+            dispatch(startRank(new Date()));
+            dispatch(startRegister(email, password, name));
         }
         else{
             Swal.fire('Error', msg, 'error')
@@ -74,7 +80,7 @@ export const Register = () => {
                >
                    Enviar
                </button>
-               <Link className="login__link" to="/login"> Ya tengo cuenta!</Link>
+               <Link className="login__link" to="/auth/login"> Ya tengo cuenta!</Link>
 
             </form>
         </div>

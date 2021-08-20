@@ -1,19 +1,28 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { rankCheckingFinish, startGetRanks } from '../../actions/rank'
 
 export const Rank = () => {
 
-    const { user } = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+        dispatch(startGetRanks());
+        dispatch(rankCheckingFinish());
+    }, [dispatch])
+
+    const { uid, name } = useSelector(state => state.auth)
     const {navBar} = useSelector(state => state.ui)
+    const {ranking, chekingRank} = useSelector(state => state.rank)
     const id = Date.now()
-    const { displayName, bestScore } = user
+    
     
 
     return (
         <div className={`${navBar ? "memorice__juego-navBar" : "memorice__juego-noNavBAr"} rank__container`}>
             <h1>Rank</h1>
             {
-                bestScore
+                ranking.length > 0
                     ?
                     <table className="rank__table">
                         <thead>
@@ -24,10 +33,14 @@ export const Rank = () => {
                         </thead>
 
                         <tbody>
-                            <tr key={id.toString()}>
-                                <td> {displayName} </td>
-                                <td> {bestScore} </td>
-                            </tr>
+                            {
+                                ranking.map(rank => (
+                                    <tr key={rank.user._id}>
+                                    <td> {rank.user.name} </td>
+                                    <td> {rank.time} </td>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
                     </table>
                     :
