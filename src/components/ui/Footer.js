@@ -13,7 +13,7 @@ export const Footer = () => {
                 <FontAwesomeIcon icon= {faTwitter} size="2x"/> <span>  Twitter</span>
             </div>
             <div>
-                <h4 className="memorice__autor"> diseño de naves</h4>
+                <h4 className="memorice__autor">Diseño de naves</h4>
                 <h5 className="memorice__autor">Maximus Games Studios</h5>
                 <FontAwesomeIcon icon= {faInstagram} size="2x"/> <span>  Instagram</span>
             </div>

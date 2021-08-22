@@ -25,7 +25,7 @@ export const Login = ({history}) => {
     return (
         <form className="login-conteniner" onSubmit={handleSubmit}>
             <h1><b>Bienvendido a <br/> Memorice Spacial</b></h1>
-            <h2>Coloca tu nombre</h2>
+            <h2>Ingrese los datos</h2>
             <input 
                 type="email"
                 name="email" 

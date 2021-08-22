@@ -1,9 +1,11 @@
 import React from 'react'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from 'react-redux'
 import { mostarNavBar } from '../../actions/ui';
 import { Link } from 'react-router-dom';
+import { startLogout } from '../../actions/auth';
 
 export const Header = () => {
 
@@ -12,6 +14,11 @@ export const Header = () => {
 
     const handleClick = () => {
         dispatch(mostarNavBar(navBar))
+        
+    }
+
+    const handleLogout = () => {
+        dispatch(startLogout());
     }
 
     return (
@@ -23,6 +30,13 @@ export const Header = () => {
                 <ul>
                     <Link className="memorice__nav-laptop-Link" to="/">Inicio</Link>
                     <Link className="memorice__nav-laptop-Link" to="/rank">Rank</Link>
+                    <button
+                        className="memorice__button-NavBar"
+                        onClick={handleLogout} 
+                    >
+                        <FontAwesomeIcon icon={ faSignOutAlt } />
+                        <span> Salir </span>
+                    </button>
                 </ul>
             </nav>
         </header>

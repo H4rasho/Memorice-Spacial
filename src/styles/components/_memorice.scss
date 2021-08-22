@@ -4,7 +4,7 @@
     justify-content: center;
     grid-template-columns: 1fr;
     grid-template-rows: 80px 100px auto auto;
-    height: 100vh;
+    height: 100%;
 }
 
 .memorice__header {
@@ -27,6 +27,20 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.memorice__button-NavBar {
+    border-radius: 10px;
+    background-color: $primary;
+    color: $box-color;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 5px;
+    :hover {
+        color: lighten($color: $primary, $amount: 50);
+    }
+}
+
 .memorice__nav-Link {
     width: 100vw;
     color: $box-color;
@@ -78,7 +92,7 @@
 
 .memorice__juego {
     background-color: $primary;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,8 +204,12 @@
 
     .memorice__nav-laptop-Link {
         text-decoration: none;
+        font-size: 1.5rem;
         color: $box-color;
-        padding: 5px;
+        padding: 10px;
+    }
+    .memorice__nav-laptop-Link:hover {
+        color: darken($color: $box-color, $amount: 50);
     }
 
     .memorice__juego-cards {

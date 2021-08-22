@@ -8,7 +8,6 @@ import { naves } from '../../data/naves'
 import { Instruciones } from '../ui/Instruciones';
 import { startAddRank, startGetBestRank, startRank, startUpdateBestRank } from '../../actions/rank';
 import { restaurasNaves } from '../../helpers/restaurarNaves';
-import { upDateBestScore } from '../../actions/auth';
 
 export const MemoriceJuego = () => {
 

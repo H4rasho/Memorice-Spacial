@@ -8,16 +8,7 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
      
     switch (action.type) {
-        case types.login: 
-            return {
-                ...state,
-                user: {
-                    logged: true,
-                    id: action.payload.id,
-                    displayName: action.payload.name
-                }
-            }
-
+           
         case types.authLogin:
             return {
                 ...state,
@@ -39,6 +30,11 @@ export const authReducer = (state = initialState, action) => {
                     bestScore: action.payload
                 }
             }
+        case types.authLogout : 
+            return {
+                checking: false
+            }
+
         default:
             return state
     }

@@ -11,16 +11,14 @@ export const Rank = () => {
         dispatch(rankCheckingFinish());
     }, [dispatch])
 
-    const { uid, name } = useSelector(state => state.auth)
     const {navBar} = useSelector(state => state.ui)
-    const {ranking, chekingRank} = useSelector(state => state.rank)
-    const id = Date.now()
+    const {ranking} = useSelector(state => state.rank)
     
     
 
     return (
         <div className={`${navBar ? "memorice__juego-navBar" : "memorice__juego-noNavBAr"} rank__container`}>
-            <h1>Rank</h1>
+            <h1>Top 10</h1>
             {
                 ranking.length > 0
                     ?
