@@ -1,8 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 
 body, html{
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Poppins', sans-serif;
     color: $box-color;
     background-color: $primary;
 }
@@ -15,6 +15,16 @@ p {
     color: darken($color: $box-color, $amount: 10);
 }
 
+a {
+    color: $box-color;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lighten($color: $primary, $amount: 50);
+}
+
+
 #root {
     background-color: $primary
 }
@@ -22,3 +32,4 @@ p {
 .dispay-none {
     display: none;
 }
+
